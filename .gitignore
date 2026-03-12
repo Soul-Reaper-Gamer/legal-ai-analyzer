@@ -9,8 +9,6 @@ __pycache__/
 node_modules/
 .next/
 
-# Environment
-backend/.env
 
 # Uploads
 uploads/
