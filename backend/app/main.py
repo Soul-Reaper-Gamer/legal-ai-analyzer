@@ -11,17 +11,16 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Allowed frontend domains
-origins = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "https://legal-ai-analyzer.vercel.app",   # Vercel frontend
-]
-
-# Enable CORS so frontend can call backend
+# Enable CORS so frontend (Next.js / Vercel) can call backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "https://legal-ai-analyzer.vercel.app"
+    ],
+    # Allow all Vercel preview deployments
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -48,7 +47,7 @@ def root():
         "message": "Legal AI Backend Running 🚀"
     }
 
-# Health check
+# Health check endpoint
 @app.get("/health", tags=["Health"])
 def health_check():
     return {
