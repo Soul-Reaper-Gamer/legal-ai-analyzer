@@ -66,10 +66,10 @@ export default function AnalysisPage() {
 
   }
 
-  const insights = analysis.insights || [];
-  const riskOverview = analysis.risk_overview || {};
-  const fairness = analysis.fairness || null;
-  const negotiation = analysis?.negotiation || null;
+const insights = analysis?.insights || [];
+const riskOverview = analysis?.risk_overview || {};
+const fairness = analysis?.fairness || null;
+const negotiation = analysis?.negotiation || null;
 
   const clauses = (analysis.clauses || []).map((c) => ({
     text: c.clause_text || c.text || "",
