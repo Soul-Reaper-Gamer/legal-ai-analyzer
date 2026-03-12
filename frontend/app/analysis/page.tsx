@@ -13,7 +13,7 @@ import NegotiationPanel from "@/src/components/NegotiationPanel";
 
 export default function AnalysisPage() {
 
-  const [analysis, setAnalysis] = useState<any>(null);
+  const [analysis, setAnalysis] = useState<Record<string, any> | null>(null);
   const [contractText, setContractText] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -71,7 +71,7 @@ const riskOverview = analysis?.risk_overview || {};
 const fairness = analysis?.fairness || null;
 const negotiation = analysis?.negotiation || null;
 
-  const clauses = (analysis.clauses || []).map((c) => ({
+  const clauses = (analysis?.clauses || []).map((c: any) => ({
     text: c.clause_text || c.text || "",
     risk: c.risk_level || c.risk || "Low",
     type: c.clause_type || c.type || "General",
