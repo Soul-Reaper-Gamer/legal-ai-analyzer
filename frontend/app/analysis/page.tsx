@@ -13,7 +13,7 @@ import NegotiationPanel from "@/src/components/NegotiationPanel";
 
 export default function AnalysisPage() {
 
-  const [analysis, setAnalysis] = useState(null);
+  const [analysis, setAnalysis] = useState<any>(null);
   const [contractText, setContractText] = useState("");
   const [loading, setLoading] = useState(true);
 

@@ -20,7 +20,7 @@ export default function UploadBox() {
 
     try {
 
-      const res = await fetch("http://localhost:8000/api/analyze", {
+      const res = await fetch("https://legal-ai-analyzer-vjss.onrender.com/api/analyze", {
         method: "POST",
         body: formData
       });
